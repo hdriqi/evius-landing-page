@@ -1,0 +1,5 @@
+menu blog view all
+dotted text blog view all
+date blog view all
+date each blog post
+link contact halaman sama

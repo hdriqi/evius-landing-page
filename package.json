@@ -1,0 +1,20 @@
+{
+  "name": "evis",
+  "version": "1.0.0",
+  "description": "My well-made Nuxt.js project",
+  "author": "mipagama",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
