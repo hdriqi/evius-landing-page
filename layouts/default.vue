@@ -14,6 +14,15 @@
   font-family: 'Cabin', sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-decoration-color: #0A1743;
+}
+
 .primary-color {
 	color: #0A1743;
 }
