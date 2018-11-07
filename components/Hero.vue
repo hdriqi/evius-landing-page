@@ -9,7 +9,7 @@
 								<h1 class="hero-text h2 h1-md fw-600 primary-color m-0 inline-block">We help</h1>
 							</div>
 							<div class="text-center text-md-left">
-								<h1 class="h2 h1-md fw-600 primary-color m-0 inline-block">revolutionaze business</h1>
+								<h1 class="h2 h1-md fw-600 primary-color m-0 inline-block">revolutionize business</h1>
 							</div>
 						</div>
 						<div class="mb-4 mb-md-7">
@@ -21,7 +21,7 @@
 					<div class="row">
 						<div class="col-12 col-md-6 text-center text-md-left mb-4 order-2 order-md-1">
 							<nuxt-link to="/contact">
-								<button class="btn">CONTACT US</button>
+								<button class="btn">LET'S TALK</button>
 							</nuxt-link>
 						</div>
 						<div class="col-12 col-md-6 text-center text-md-right mb-4 order-1 order-md-2">

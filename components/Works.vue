@@ -1,6 +1,6 @@
 <template>
 	<div class="container py-7" id="works">
-		<div class="mw-4 m-auto">
+		<div class="mw-5 m-auto">
 			<div class="mb-7">
 				<div class="text-center">
 					<h4 class="primary-color">Works</h4>

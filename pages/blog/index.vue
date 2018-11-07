@@ -1,170 +1,72 @@
 <template>
-	<section class="container">
-		<!-- <div id="nav">
-	    <div class="menu menuLogo">
-	      <img src="~/assets/img/logo.png">
-	    </div>
-	    <div class="menu">
+	<div>
+		<Nav />
+		<section class="container">
+			<div id="contentWrapper">
+				<div id="blog">
+					<div class="highLightWrap">
+										
+							<nuxt-link
+								v-for="(item,index) in $store.state.blog.list.slice(0,3)"
+								:key="index"
+								:to="`/blog/${item._id}`"
+								:class="`grid${index+1}`"
+								:style="`background-image: url('${item.Thumbnail}')`"
+							>	
+								<div id="descHighLight">		
+									<p id="titleHighLight">{{item.Title}}</p>
+									<p id="dateHighLight">{{item.createdAt}}</p>
+								</div>
+							</nuxt-link>
 
-	      <a class="fw-6 h5 darkBlue" href="/" type="scroll">
-	        <img src="~/assets/img/home.png" class="menuIcon">
-	        HOME
-	      </a>
+					</div>
 
-	    </div>
-	  </div>
+					<div id="border">
+						<p id="borderText">LATEST POSTS</p>
+						<div id="borderLine"></div>
+					</div>
+					<div id="postWrapper">
 
-	  <div id="menuHamburger">
-	    <div class="bgdarkBlue"></div>
-	    <div class="bgdarkBlue"></div>
-	    <div class="bgdarkBlue"></div>
-	  </div> -->
+						<nuxt-link
+							v-for="(item,index) in dataAll"
+							:key="index"
+							:to="`/blog/${item._id}`"
 
-    <div id="backButton" class="darkBlue bgcyan">
-      <a href="/"><span>&#x2190;</span>HOME</a>
-    </div>
+						>
+							<div class="post">
+								<div 
+									class="thumbnail" 
+									:style="`background-image: url('${item.Thumbnail}')`"
+								>
+									
+								</div>
+								<div class="description">
+									<div class="titleWrap">
+										<p class="darkBlue h3 title">{{ item.Title }}</p>
+										<p class="darkBlue date">{{ item.createdAt }}</p>
+								</div>
+								</div>
+							</div>
+						</nuxt-link>
 
-	  <div id="contentWrapper">
-	  	<div id="blog">
-	  		<div class="highLightWrap">
-		  			  		
-		  			<nuxt-link
-							v-for="(item,index) in dataHighlight"
-		          :key="index"
-		          :to="`/blog/${item._id}`"
-		          :class="`grid${index+1}`"
-		          :style="`background-image: url('${item.Thumbnail}')`"
-		        >	
-		        	<div id="descHighLight">		
-			  				<p id="titleHighLight">{{item.Title}}</p>
-			  				<p id="dateHighLight">{{item.createdAt}}</p>
-			  			</div>
-		  			</nuxt-link>
+					</div>
+					<div id="borderLineBottom"></div>
+				</div>
+			</div>
 
-		  	</div>
-
-		  	<div id="border">
-		      <p id="borderText">LATEST POSTS</p>
-		      <div id="borderLine"></div>
-		    </div>
-	      <div id="postWrapper">
-
-	        <nuxt-link
-	          v-for="(item,index) in dataAll"
-	          :key="index"
-	          :to="`/blog/${item._id}`"
-
-	        >
-	          <div class="post">
-	            <div 
-	            	class="thumbnail" 
-	            	:style="`background-image: url('${item.Thumbnail}')`"
-	            >
-	            	
-	            </div>
-	            <div class="description">
-	              <div class="titleWrap">
-	                <p class="darkBlue h3 title">{{ item.Title }}</p>
-	                <p class="darkBlue date">{{ item.createdAt }}</p>
-	            </div>
-	            </div>
-	          </div>
-	        </nuxt-link>
-
-	      </div>
-	      <div id="borderLineBottom"></div>
-	    </div>
-	  </div>
-
-	</section>
+		</section>
+	</div>
 </template>
 
 <script>
+import Nav from '~/components/Nav'
+import Footer from '~/components/Footer'
+
 export default{
-	mounted() {
-		// var menu = 'hidden';
-
-  //   document.getElementById('menuHamburger').addEventListener('click', function() {
-  //     if (menu === 'shown') {
-        
-  //       document.getElementById('nav').style.left = 'calc(-1 * calc(100% - 56px))';
-  //       document.getElementById('contentWrapper').style.filter = 'blur(0px)';
-  //       document.getElementById('contentWrapper').style.pointerEvents = 'auto';
-  //       menu = 'hidden';
-  //       console.log(menu)
-  //     }
-  //     else{
-  //       document.getElementById('nav').style.left = '0';
-  //       document.getElementById('contentWrapper').style.filter = 'blur(10px)';
-  //       document.getElementById('contentWrapper').style.pointerEvents = 'none';
-  //       menu = 'shown';
-  //       console.log(menu)
-  //     }
-  //   });
-
-    // window.addEventListener("resize", function() {
-
-    //   console.log('resized');
-
-    //   if (window.innerWidth > 767) {
-    //     document.getElementById('nav').style.left = '50%';
-    //   }
-
-    // });		
-	},
-	data() {
-    return {
-    	dataHighlight: '',
-      dataAll: ''
-    }
-  },
-  methods: {
-
-  },
-  created() {
-    function loadJSON(callback) {   
-
-      var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-      xobj.open('GET', 'blog.json', true); 
-      xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          try {
-            var data = JSON.parse(xobj.responseText);
-          } catch(err) {
-            console.log('error')
-            return;
-          }
-          callback(data);
-        }
-      };
-      xobj.send(null);  
-    }
-    var self = this;
-    loadJSON(function(data) {
-      self.dataHighlight = data.data.slice(0,3);
-      self.dataAll = data.data.slice(3);
-
-      function changeDate(obj) {
-        for (let i in obj) {
-          let dt = obj[i].createdAt.substring(0,10).split("-").reverse()
-          obj[i].createdAt = dt[0] + '-' + dt[1] + '-' + dt[2]  
-          console.log(obj[i].createdAt)
-        }
-      }
-
-      changeDate(self.dataHighlight)
-      changeDate(self.dataAll)
-
-    });
-
-    // window.addEventListener("resize", function() {
-    //   console.log('resize!');
-    //   if (window.innerWidth > 767) {
-    //     document.getElementById('nav').style.left = '50%';
-    //   }
-    // });
-  }
+	components: {
+		Nav: Nav,
+		Footer: Footer
+	}
 }
 </script>
 
