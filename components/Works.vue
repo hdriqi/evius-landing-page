@@ -5,19 +5,19 @@
 				<div class="text-center">
 					<h4 class="primary-color">Works</h4>
 				</div>
-				<div class="separatorWrapper">
-					<div class="separator bgcyan"></div>
-				</div>
+				<div class="separator m-auto"></div>
 			</div>
 			<div class="row no-gutters">
-				<div class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4516668/dribbble_genome_nationwide-800-small.png)">
+				
+				<div v-for="work in works" :key="work.company" class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4516668/dribbble_genome_nationwide-800-small.png)">
 					<div class="works-list-content p-4 text-center">
 						<div class="works-list-text p-3">
-							<h4 class="text--white fw-600">Genome Nationwite</h4>
+							<h4 class="text--white fw-600">{{ work.company }}</h4>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4902420/usaa-genome_final_dribbble_b.jpg)">
+
+				<!-- <div class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4902420/usaa-genome_final_dribbble_b.jpg)">
 					<div class="works-list-content p-4 text-center">
 						<div class="works-list-text p-3">
 							<h4 class="text--white fw-600">USAA Genome</h4>
@@ -30,11 +30,25 @@
 							<h4 class="text--white fw-600">Northwestern Mutual</h4>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			works: [{
+				company: 'Meshmaker',
+				thumbnail: '/img/works/meshmaker/thumbnail.png'
+			}]
+		}
+	}
+}
+</script>
+
 
 <style>
 .works-list {

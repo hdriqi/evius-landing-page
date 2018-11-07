@@ -90,4 +90,10 @@ a:hover {
 	display: inline-block;
 }
 
+.separator {
+	height: 2px;
+	background-color: #0A1743;
+	width: 2rem;
+}
+
 </style>

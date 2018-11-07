@@ -1,8 +1,8 @@
 <template>
-	<div>
-		<div class="nav" id="nav">
-			<div class="container my-4">
-				<div class="row align-items-center">
+	<div >
+		<div class="nav" :class="{ hide: hideNav }">
+			<div class="container h-100">
+				<div class="row align-items-center h-100">
 					<div class="col-2 nav-logo">
 						<img src="~/assets/img/logo.png">
 					</div>
@@ -27,45 +27,47 @@
 </template>
 
 <script>
-let didScroll = false
 let lastScroll = window.scrollY
-
-const hasScrolled = () => {
-	const currentScroll = window.scrollY
-	if(lastScroll > currentScroll) {
-		console.log('up')
-	}
-	else{
-		
-	}
-	lastScroll = currentScroll
-}
-const scrollChecker = () => {
-	if (didScroll) {
-		hasScrolled()
-		didScroll = false
-	}
-	window.requestAnimationFrame(scrollChecker)
-}
 
 export default {
 	data() {
 		return {
-			didScroll: false
+			didScroll: false,
+			hideNav: false
 		}
 	},
 
 	methods: {
 		handleScroll(e) {
-			didScroll = true
+			this.didScroll = true
+		},
+
+		hasScrolled() {
+			const currentScroll = window.scrollY
+			if(lastScroll > currentScroll && this.hideNav) {
+				this.hideNav = false
+			}
+			else if(lastScroll < currentScroll && !this.hideNav){
+				this.hideNav = true
+			}
+			lastScroll = currentScroll
+		},
+
+		scrollChecker() {
+			if (this.didScroll) {
+				this.hasScrolled()
+				this.didScroll = false
+			}
+			window.requestAnimationFrame(this.scrollChecker)
 		}
 	},
 
 	created() {
 		window.addEventListener('scroll', this.handleScroll)
 
-		window.requestAnimationFrame(scrollChecker)
+		window.requestAnimationFrame(this.scrollChecker)
 	},
+
 	destroyed: function () {
 		window.removeEventListener('scroll', this.handleScroll)
 	}
@@ -73,17 +75,23 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .nav {
+	background: rgba(255, 255, 255, 1);
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 10;
 	height: 4rem;
+	transition: transform .5s ease-out;
+	box-shadow: 0 0px 4px 0px rgba(0,0,0,0.16);
 }
 .nav-logo img{
-	height: 3rem;
+	height: 2rem;
 	width: auto;
+}
+.hide {
+	transform: translate3d(0,-150%,0);
 }
 
 .nav a {

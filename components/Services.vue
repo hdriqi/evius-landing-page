@@ -5,9 +5,7 @@
 				<div class="text-center">
 					<h4 class="primary-color">Services</h4>
 				</div>
-				<div class="separatorWrapper">
-					<div class="separator bgcyan"></div>
-				</div>
+				<div class="separator m-auto"></div>
 			</div>
 			<div class="row align-items-center mb-7 pb-7">
 				<div class="col-12 col-md-6 order-2 order-md-1">

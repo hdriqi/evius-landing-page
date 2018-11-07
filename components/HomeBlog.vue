@@ -5,9 +5,7 @@
 				<div class="text-center">
 					<h4 class="primary-color">Blog</h4>
 				</div>
-				<div class="separatorWrapper">
-					<div class="separator bgcyan"></div>
-				</div>
+				<div class="separator m-auto"></div>
 			</div>
 			<div v-for="(item,index) in $store.state.blog.list.slice(0,3)" :key="index">
 				<div class="row mb-7">
