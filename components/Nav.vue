@@ -4,25 +4,28 @@
 			<div class="container h-100">
 				<div class="row align-items-center h-100">
 					<div class="col-2 nav-logo">
-						<img src="~/assets/img/logo.png">
+						<nuxt-link to="/">
+							<img src="~/assets/img/logo.png">
+						</nuxt-link>
 					</div>
 					<div class="col-10 nav-menu d-none d-lg-block text-right">
-						<a class="small fw-600 mr-6" href="#service" type="scroll">
-							SERVICE
-						</a>
-						<a class="small fw-600 mr-6" href="#work" type="scroll">
+						<nuxt-link class="small fw-600 mr-6" to="/" type="scroll">
+							HOME
+						</nuxt-link>
+						<nuxt-link class="small fw-600 mr-6" to="work" type="scroll">
 							WORK
-						</a>
-						<a class="small fw-600 mr-6" href="#blog" type="scroll">
+						</nuxt-link>
+						<nuxt-link class="small fw-600 mr-6" to="blog" type="scroll">
 							BLOG
-						</a>
-						<a class="small fw-600" href="#contact" type="scroll">
+						</nuxt-link>
+						<nuxt-link class="small fw-600" to="contact" type="scroll">
 							CONTACT
-						</a>
+						</nuxt-link>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="nav-placeholder"></div>
 	</div>
 </template>
 
@@ -102,5 +105,8 @@ export default {
 }
 .nav a:hover {
 	color: #0A1743;
+}
+.nav-placeholder {
+	height: 4rem;
 }
 </style>

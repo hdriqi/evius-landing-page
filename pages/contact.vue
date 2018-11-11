@@ -1,5 +1,4 @@
 <template>
-
 	<div id="contactWrapper">
 		<div id="wrap">
 			<div id="leftContact" class="grid-item grid1 bgdarkBlue">

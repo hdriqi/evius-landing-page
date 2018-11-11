@@ -22,25 +22,11 @@ import HomeContact from '~/components/HomeContact'
 import Footer from '~/components/Footer'
 
 export default {
-	data() {
-    return {
-      data: ''
-    }
+	mounted() {
+		if(!this.$store.state.work.list.length > 0) {
+			this.$store.dispatch('work/fetch')
+		}
 	},
-	
-  mounted() {
-    document.querySelectorAll('a[type^="scroll"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault()
-
-				document.querySelector(this.getAttribute('href')).scrollIntoView({
-					block: "start", 
-					inline: "nearest",
-					behavior: 'smooth'
-				})
-			})
-    })
-  },
 
   created() {
 		const self = this

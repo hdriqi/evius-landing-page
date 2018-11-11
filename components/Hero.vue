@@ -57,13 +57,13 @@
 .hero-main {
 	position: relative;
 	background: white;
-	top: 20%;
+	top: 10%;
 	z-index: 1;
 }
 .hero-arrow {
 	width: 100%;
 	position: absolute;
-	bottom: 10%;
+	bottom: 15%;
 }
 .hero-arrow a {
 	text-decoration: none;
