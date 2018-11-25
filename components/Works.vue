@@ -8,29 +8,19 @@
 				<div class="separator m-auto"></div>
 			</div>
 			<div class="row no-gutters">
-				
-				<div v-for="work in works" :key="work.company" class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4516668/dribbble_genome_nationwide-800-small.png)">
-					<div class="works-list-content p-4 text-center">
-						<div class="works-list-text p-3">
-							<h4 class="text--white fw-600">{{ work.company }}</h4>
+				<div v-for="work in works" :key="work.company" class="col-12 col-md-4 works-list"
+				:style="{
+					'background-image': `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0.6)), url(${JSON.parse(work.thumbnail)[0].url})`,
+				}">
+					<nuxt-link :to="work.company | toUrl">
+						<div class="works-list-content p-4 text-center">
+							<div class="works-list-text p-3">
+								<h4 class="text--white fw-600">{{ work.company | capitalize }}</h4>
+								<h6 class="text--semi-white">{{ work.service }}</h6>
+							</div>
 						</div>
-					</div>
+					</nuxt-link>
 				</div>
-
-				<!-- <div class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/4902420/usaa-genome_final_dribbble_b.jpg)">
-					<div class="works-list-content p-4 text-center">
-						<div class="works-list-text p-3">
-							<h4 class="text--white fw-600">USAA Genome</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-4 works-list" style="background-image:url(https://cdn.dribbble.com/users/77628/screenshots/5017748/northwestern_mutual_800x600.png)">
-					<div class="works-list-content p-4 text-center">
-						<div class="works-list-text p-3">
-							<h4 class="text--white fw-600">Northwestern Mutual</h4>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
@@ -38,12 +28,24 @@
 
 <script>
 export default {
-	data() {
-		return {
-			works: [{
-				company: 'Meshmaker',
-				thumbnail: '/img/works/meshmaker/thumbnail.png'
-			}]
+	computed: {
+		works() {
+			return this.$store.getters['work/getList']
+		}
+	},
+
+	filters: {
+		capitalize(title) {
+			return title.charAt(0).toUpperCase() + title.slice(1)
+		},
+		parseJSON(data) {
+			return JSON.parse(data)
+		},
+		parseUrl(obj) {
+			return obj[0].url
+		},
+		toUrl(company) {
+			return `/works/${company}`
 		}
 	}
 }
@@ -60,7 +62,10 @@ export default {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(to bottom, rgba(10, 23, 67, 0), rgba(10, 23, 67, 0.1) 90%, rgba(10, 23, 67, 0.3));
+	transition: all 0.2s;
+}
+.works-list-content:hover {
+	transform: translate3D(0,-10px,0);
 }
 .works-list-text {
 	position: absolute;

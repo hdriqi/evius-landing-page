@@ -14,8 +14,12 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'We help revolutionaze business. The 4th industrial revolution is coming. It’s time to digitize your business to stay relevant and stay at the forefront of your industry.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/monokai-sublime.min.css' }
+		],
+		script: [
+			{ src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js' }
+		]
   },
 
   /*
@@ -28,7 +32,7 @@ module.exports = {
   */
   css: [
 		'~/assets/skeleton.css'
-  ],
+	],
 
   /*
   ** Plugins to load before mounting the App
@@ -50,7 +54,10 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+      config.module.rules.push({
+				test: /\.svg/,
+				loader: 'vue-svg-loader'
+			});
     }
   }
 }
