@@ -6,7 +6,7 @@
 					<div class="contactGrid">
 						<h3>Tell us what you want</h3>
 						<p>Great things start with process. We help you start a revolution and take your business to the next level. Tell us your idea.</p>
-						<button class="btn">
+						<button class="btn" @click="leadFromHomeContact">
 							<nuxt-link to="contact">CONTACT US&nbsp;<span> &#x279e;</span></nuxt-link>	
 						</button>
 					</div>
@@ -23,3 +23,13 @@
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	methods: {
+		leadFromHomeContact() {
+			this.$ga.event('lead', 'navigate', 'HomeContact', 1)
+		}
+	}
+}
+</script>

@@ -47,7 +47,7 @@
 							</div>
 							<div class="col-12">
 								<nuxt-link to="/contact">
-									<button class="btn">Tell us your idea</button>
+									<button class="btn" @click="leadFromPricing">Tell us your idea</button>
 								</nuxt-link>
 							</div>
 						</div>
@@ -83,6 +83,10 @@ export default{
 		transformDate(date) {
 			const newDate = new Date(date)
 			return newDate.toDateString()
+		},
+
+		leadFromPricing() {
+			this.$ga.event('lead', 'navigate', 'Pricing', 1)
 		},
 
 		submit(e) {

@@ -21,7 +21,7 @@
 					<div class="row">
 						<div class="col-12 col-md-6 text-center text-md-left mb-4 order-2 order-md-1">
 							<nuxt-link to="/contact">
-								<button class="btn">LET'S TALK</button>
+								<button class="btn" @click="leadFromHero">LET'S TALK</button>
 							</nuxt-link>
 						</div>
 						<div class="col-12 col-md-6 text-center text-md-right mb-4 order-1 order-md-2">
@@ -45,6 +45,17 @@
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	methods: {
+		leadFromHero() {
+			this.$ga.event('lead', 'navigate', 'Hero', 1)
+		}
+	}
+}
+</script>
+
 
 <style>
 .hero-container {
