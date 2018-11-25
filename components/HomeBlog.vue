@@ -11,14 +11,14 @@
 				<div class="row mb-7">
 					<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item._id}`">
 						<div class="thumbnail"
-							style="background-image: url('https://cdn.dribbble.com/users/77628/screenshots/4516668/dribbble_genome_nationwide-800-small.png')"
+							:style="{'background-image': `url(${JSON.parse(item.thumbnail)[0].url})`}"
 						>
 						</div>
 					</nuxt-link>
 					<div class="col-12 col-md-8 description">
 						<div class="titleWrap">
 							<nuxt-link :to="`/blog/${item._id}`">
-								<h3 class="primary-color fw-600">{{ item.Title }}</h3>
+								<h3 class="primary-color fw-600">{{ item.title }}</h3>
 							</nuxt-link>
 							<nuxt-link :to="`/blog/${item._id}`">
 								<p class="darkBlue date">{{ transformDate(item.createdAt) }}</p>

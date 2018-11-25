@@ -10,7 +10,7 @@
 			<div class="row no-gutters">
 				<div v-for="work in works" :key="work.company" class="col-12 col-md-4 works-list"
 				:style="{
-					'background-image': `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0.6)), url(/img/works/${work.company}/thumbnail.jpg)`,
+					'background-image': `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0.6)), url(${JSON.parse(work.thumbnail)[0].url})`,
 				}">
 					<nuxt-link :to="work.company | toUrl">
 						<div class="works-list-content p-4 text-center">
@@ -37,6 +37,12 @@ export default {
 	filters: {
 		capitalize(title) {
 			return title.charAt(0).toUpperCase() + title.slice(1)
+		},
+		parseJSON(data) {
+			return JSON.parse(data)
+		},
+		parseUrl(obj) {
+			return obj[0].url
 		},
 		toUrl(company) {
 			return `/works/${company}`

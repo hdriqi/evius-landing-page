@@ -26,31 +26,9 @@ export default {
 		if(!this.$store.state.work.list.length > 0) {
 			this.$store.dispatch('work/fetch')
 		}
-	},
-
-  created() {
-		const self = this
-    function loadJSON(callback) {   
-
-      var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-      xobj.open('GET', 'blog.json', true); 
-      xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          try {
-            var data = JSON.parse(xobj.responseText);
-          } catch(err) {
-            console.log('error')
-            return;
-          }
-          callback(data);
-        }
-      };
-      xobj.send(null);  
-    }
-    loadJSON(function(data) {
-			self.$store.commit('blog/addBulk', data.data)
-    })
+		if(!this.$store.state.blog.list.length > 0) {
+			this.$store.dispatch('blog/fetch')
+		}
 	},
 	
 	components: {

@@ -6,12 +6,16 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,600');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Cabin', sans-serif;
+}
+
+body {
+	font-family: 'Cabin', sans-serif;
 }
 
 a {
@@ -21,6 +25,15 @@ a {
 a:hover {
 	text-decoration: underline;
 	text-decoration-color: #0A1743;
+}
+
+pre {
+	font-family: 'Inconsolata', monospace !important;
+}
+
+input, textarea {
+	font-family: 'Cabin', sans-serif;
+	font-size: 16px;
 }
 
 .primary-color {

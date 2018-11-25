@@ -1,7 +1,3 @@
-* {
-	font-family: 'Roboto', sans-serif;
-}
-
 body {
 	font-size: 16px;
 	line-height: 1.5;
@@ -22,6 +18,10 @@ body {
 }
 .mw-5 {
 	max-width: 1140px
+}
+
+.ql-syntax {
+	border-radius: 5px;
 }
 
 h1,
@@ -223,7 +223,7 @@ button:focus {
 input,
 select,
 textarea {
-	min-width: 300px;
+	min-width: 280px;
 	height: 40px;
 	background-color: rgb(250, 250, 255);
 	outline: none;
