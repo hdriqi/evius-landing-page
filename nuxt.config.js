@@ -11,7 +11,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ p: 'og:image', c: '/favicon.ico' },
+			{ property: 'og:image', content: '/favicon.ico' },
       { hid: 'description', name: 'description', content: 'We help revolutionaze business. The 4th industrial revolution is coming. It’s time to digitize your business to stay relevant and stay at the forefront of your industry.' }
     ],
     link: [
