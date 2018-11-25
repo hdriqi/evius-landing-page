@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<Nav />
-		<Works />
+		<div style="min-height: 100vh">
+			<Works />
+		</div>
 		<Footer />
 	</div>
 </template>

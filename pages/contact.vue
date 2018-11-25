@@ -1,7 +1,7 @@
 <template>
 	<div id="contactWrapper">
 		<Nav />
-		<div class="container">
+		<div class="container" style="min-height: 100vh">
 			<div class="mw-2 m-auto py-7">
 				<div class="row">
 					<div class="col-12">
