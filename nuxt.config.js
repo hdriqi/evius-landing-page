@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 module.exports = {
   mode: 'spa',
@@ -48,7 +49,37 @@ module.exports = {
 		['@nuxtjs/google-analytics', {
       id: 'UA-93228473-1'
     }]
-  ],
+	],
+
+	generate: {
+    routes: function (cb) {
+      axios.all([
+				axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Blog', {
+					headers: {
+						authorization: 'Bearer 2zcDZ9W8EUJTyPtwwCQLppa'
+					}
+				}),
+				axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Works', {
+					headers: {
+						authorization: 'Bearer 2zcDZ9W8EUJTyPtwwCQLppa'
+					}
+				})
+			])
+			.then(axios.spread(function (blogs, works) {
+					let routes1 = blogs.data.data.map((blog) => {
+						return '/blog/' + blog._id
+					});
+
+					let routes2 = works.data.data.map((work) => {
+						return '/works/' + work.company
+					});
+
+					cb(null, routes1.concat(routes2));
+			}), function(err) {
+					return next(err);
+			});
+    }
+  },
 
   /*
   ** Build configuration
