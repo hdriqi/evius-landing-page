@@ -2,7 +2,7 @@ const pkg = require('./package')
 const axios = require('axios')
 
 module.exports = {
-  mode: 'universal',
+  mode: 'spa',
 
   /*
   ** Headers of the page
