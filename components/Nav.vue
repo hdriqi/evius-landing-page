@@ -65,7 +65,7 @@
 </template>
 
 <script>
-let lastScroll = window.scrollY
+let lastScroll = null
 
 export default {
 	data() {
@@ -109,9 +109,12 @@ export default {
 	},
 
 	created() {
-		window.addEventListener('scroll', this.handleScroll)
+		if(process.client) {
+			lastScroll = window.scrollY
+			window.addEventListener('scroll', this.handleScroll)
 
-		window.requestAnimationFrame(this.scrollChecker)
+			window.requestAnimationFrame(this.scrollChecker)
+		}
 	},
 
 	destroyed: function () {

@@ -28,7 +28,7 @@ export const mutations = {
 
 export const actions = {
 	fetch ({commit}) {
-		axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Works', {
+		axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Works?_sort=-createdAt', {
 			headers: {
 				authorization: 'Bearer 2zcDZ9W8EUJTyPtwwCQLppa'
 			}

@@ -25,7 +25,7 @@
 						<div id="borderLine"></div>
 					</div>
 					<div id="postWrapper">
-						<div v-for="(item,index) in $store.state.blog.list.slice(0,3)" :key="index">
+						<div v-for="(item,index) in $store.state.blog.list" :key="index">
 							<div class="row mb-7">
 								<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item._id}`">
 									<div class="thumbnail"
