@@ -19,16 +19,25 @@ body {
 }
 
 a {
-	text-decoration: none;
-}
-
-a:hover {
 	text-decoration: underline;
 	text-decoration-color: #0A1743;
 }
 
-pre {
+.blog a{
+	text-decoration: none;
+}
+.blog a:hover{
+	text-decoration: underline;
+	text-decoration-color: #0A1743;
+}
+
+a:hover {
+	color: #0A1743;
+}
+
+code {
 	font-family: 'Inconsolata', monospace !important;
+	font-size: 14px;
 }
 
 input, textarea {

@@ -1,5 +1,5 @@
 <template>
-	<div class="container py-7" id="blog">
+	<div class="blog container py-7">
 		<div class="mw-3 m-auto">
 			<div class="mb-7">
 				<div class="text-center">

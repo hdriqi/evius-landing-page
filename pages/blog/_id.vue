@@ -21,7 +21,6 @@
     </div>
 		<Footer />
   </section>
-
 </template>
 
 <script>
@@ -29,30 +28,27 @@ import Nav from '~/components/Nav'
 import Footer from '~/components/Footer'
 
 export default{
-	created() {
-		if(!this.$store.state.blog.list.length > 0) {
-			this.$store.dispatch('blog/fetch')
+	async asyncData({ store, route }) {
+		const current = route.params.id
+		if(!store.state.blog.list.length > 0) {
+			await store.dispatch('blog/fetch')
+		}
+		return {
+			content: store.getters['blog/getListById'](current)
 		}
 	},
 
 	mounted() {
-		document.querySelectorAll('.ql-syntax').forEach((target) => hljs.highlightBlock(target))
+		document.querySelectorAll('code').forEach((target) => hljs.highlightBlock(target))
 	},
 
 	watch: {
 		content(val) {
 			if(val) {
 				this.$nextTick(() => {
-					document.querySelectorAll('.ql-syntax').forEach((target) => hljs.highlightBlock(target))		
+					document.querySelectorAll('code').forEach((target) => hljs.highlightBlock(target))		
 				})
 			}
-		}
-	},
-
-	computed: {
-		content() {
-			const current = this.$route.params.id
-			return this.$store.getters['blog/getListById'](current)
 		}
 	},
 

@@ -43,11 +43,11 @@ import Footer from '~/components/Footer'
 import { mapState } from 'vuex'
 
 export default {
-	data() {
-		if(!this.$store.state.work.list.length > 0) {
-			this.$store.dispatch('work/fetch')
+	async asyncData({ store, route }) {
+		if(!store.state.work.list.length > 0) {
+			await store.dispatch('work/fetch')
 		}
-		const current = this.$route.params.id.toLowerCase()
+		const current = route.params.id.toLowerCase()
 		return {
 			title: current.slice(0, 1).toUpperCase() + current.slice(1),
 			screenshot: `/img/works/${current}/screenshot.png`

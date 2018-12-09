@@ -22,12 +22,12 @@ import HomeContact from '~/components/HomeContact'
 import Footer from '~/components/Footer'
 
 export default {
-	mounted() {
-		if(!this.$store.state.work.list.length > 0) {
-			this.$store.dispatch('work/fetch')
+	async asyncData({ store }) {
+		if(!store.state.work.list.length > 0) {
+			await store.dispatch('work/fetch')
 		}
-		if(!this.$store.state.blog.list.length > 0) {
-			this.$store.dispatch('blog/fetch')
+		if(!store.state.blog.list.length > 0) {
+			await store.dispatch('blog/fetch')
 		}
 	},
 	

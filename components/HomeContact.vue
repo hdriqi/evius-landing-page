@@ -6,9 +6,11 @@
 					<div class="contactGrid">
 						<h3>Tell us what you want</h3>
 						<p>Great things start with process. We help you start a revolution and take your business to the next level. Tell us your idea.</p>
-						<button class="btn" @click="leadFromHomeContact">
-							<nuxt-link to="contact">CONTACT US&nbsp;<span> &#x279e;</span></nuxt-link>	
-						</button>
+						<nuxt-link to="contact">
+							<button class="btn" @click="leadFromHomeContact">
+								CONTACT US&nbsp;<span> &#x279e;</span>	
+							</button>
+						</nuxt-link>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
@@ -16,7 +18,7 @@
 						<h3>Careers</h3>
 						<p>Evius was made by creative, passionate and hardworking friends and we always want to hear from talented people.</p>
 						<p class="mb-0">Send your portofolio to:</p>
-						<p class="fw-600">mamamia@evius.com</p>
+						<p class="fw-600">mamamia@evius.id</p>
 					</div>
 				</div>
 			</div>

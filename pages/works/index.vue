@@ -14,9 +14,9 @@ import Footer from '~/components/Footer'
 import Works from '~/components/Works'
 
 export default{
-	created() {
-		if(!this.$store.state.work.list.length > 0) {
-			this.$store.dispatch('work/fetch')
+	async asyncData({ store }) {
+		if(!store.state.work.list.length > 0) {
+			await store.dispatch('work/fetch')
 		}
 	},
 

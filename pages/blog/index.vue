@@ -4,27 +4,11 @@
 		<section class="container">
 			<div class="mw-3 m-auto">
 				<div class="py-7">
-					<!-- <div class="highLightWrap">
-							<nuxt-link
-								v-for="(item,index) in $store.state.blog.list.slice(0,3)"
-								:key="index"
-								:to="`/blog/${item._id}`"
-								:class="`grid${index+1}`"
-								:style="`background-image: url('${JSON.parse(item.thumbnail)[0].url}')`"
-							>	
-								<div id="descHighLight">		
-									<p id="titleHighLight">{{item.Title}}</p>
-									<p id="dateHighLight">{{item.createdAt}}</p>
-								</div>
-							</nuxt-link>
-
-					</div> -->
-
 					<div id="border">
 						<p id="borderText">LATEST POSTS</p>
 						<div id="borderLine"></div>
 					</div>
-					<div id="postWrapper">
+					<div class="blog">
 						<div v-for="(item,index) in $store.state.blog.list" :key="index">
 							<div class="row mb-7">
 								<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item._id}`">
@@ -59,9 +43,9 @@ import Nav from '~/components/Nav'
 import Footer from '~/components/Footer'
 
 export default{
-	created() {
-		if(!this.$store.state.blog.list.length > 0) {
-			this.$store.dispatch('blog/fetch')
+	async asyncData({ store }) {
+		if(!store.state.blog.list.length > 0) {
+			await store.dispatch('blog/fetch')
 		}
 	},
 

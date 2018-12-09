@@ -19,13 +19,19 @@ export const mutations = {
 
 export const actions = {
 	fetch ({commit}) {
-		axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Blog?_sort=-createdAt', {
-			headers: {
-				authorization: 'Bearer 2zcDZ9W8EUJTyPtwwCQLppa'
-			}
-		})
-		.then((result)=>{
-			commit('addBulk', result.data.data)
+		return new Promise((resolve, reject) => {
+			axios.get('https://5be7ac1db55dfa50cebc6f5e.evius.id/api/Blog?_sort=-createdAt', {
+				headers: {
+					authorization: 'Bearer 2zcDZ9W8EUJTyPtwwCQLppa'
+				}
+			})
+			.then((result)=>{
+				commit('addBulk', result.data.data)
+				resolve(result.data.data)
+			})
+			.catch((err) => {
+				reject(err)
+			})
 		})
 	}
 }
