@@ -86,7 +86,7 @@ export default {
 		},
 
 		hasScrolled() {
-			const currentScroll = window.scrollY
+			const currentScroll = Math.max(0, window.scrollY)
 			if(lastScroll > currentScroll && this.hideNav) {
 				this.hideNav = false
 			}
@@ -104,7 +104,9 @@ export default {
 				this.hasScrolled()
 				this.didScroll = false
 			}
-			window.requestAnimationFrame(this.scrollChecker)
+			setTimeout(() => {
+				window.requestAnimationFrame(this.scrollChecker)
+			}, 25)
 		}
 	},
 
