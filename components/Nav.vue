@@ -9,7 +9,7 @@
 						</nuxt-link>
 					</div>
 					<div class="col-10 nav-menu d-md-none text-right" style="z-index: 9">
-						<h5 class="m-0" @click="toggleMobileNav">{{ mobileNavActive ? 'CLOSE' : 'MENU' }}</h5>
+						<h5 class="m-0" @click="toggleMobileNav">{{ mobileNavButton }}</h5>
 					</div>
 					<div class="col-10 nav-menu d-none d-lg-block text-right">
 						<nuxt-link class="small fw-600 mr-6" to="/" type="scroll" exact>
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import Animatext from '~/assets/js/animatext.js'
+
 let lastScroll = null
 
 export default {
@@ -67,6 +69,7 @@ export default {
 			didScroll: false,
 			hideNav: false,
 			mobileNavActive: false,
+			mobileNavButton: 'MENU',
 			link: [
 				{
 					route: '/',
@@ -98,7 +101,16 @@ export default {
 		},
 
 		toggleMobileNav() {
+			const self = this
 			this.mobileNavActive = !this.mobileNavActive
+			let current = this.mobileNavButton
+			let next = 'CLOSE'
+			if(!this.mobileNavActive) {
+				next = 'MENU'
+			}
+			Animatext(current, next, 25, 500, (result) => {
+				this.mobileNavButton = result.text
+			})
 		},
 
 		navigateMobile(route) {
