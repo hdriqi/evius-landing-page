@@ -38,6 +38,19 @@ export default{
 		}
 	},
 
+	head () {
+    return {
+      title: this.content.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.content.description },
+				{ hid: 'og:title', property: 'og:title', content: this.content.title },
+				{ hid: 'og:description', property: 'og:description', content: this.content.description },
+				{ hid: 'og:image', property: 'og:image', content: JSON.parse(this.content.thumbnail)[0].url },
+				{ hid: 'twitter:card', property: 'twitter:card', content: JSON.parse(this.content.thumbnail)[0].url}
+      ]
+    }
+  },
+
 	mounted() {
 		document.querySelectorAll('code').forEach((target) => hljs.highlightBlock(target))
 	},

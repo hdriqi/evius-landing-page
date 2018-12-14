@@ -9,7 +9,7 @@
 						</nuxt-link>
 					</div>
 					<div class="col-10 nav-menu d-md-none text-right" style="z-index: 9">
-						<h5 class="m-0" @click="toggleMobileNav">MENU</h5>
+						<h5 class="m-0" @click="toggleMobileNav">{{ mobileNavActive ? 'CLOSE' : 'MENU' }}</h5>
 					</div>
 					<div class="col-10 nav-menu d-none d-lg-block text-right">
 						<nuxt-link class="small fw-600 mr-6" to="/" type="scroll" exact>
@@ -28,32 +28,26 @@
 							CONTACT
 						</nuxt-link>
 					</div>
-					<div v-if="mobileNavActive" class="nav-mobile">
-						<div class="container">
-							<div class="col-12 py-2">
-								<nuxt-link class="small fw-600" to="/" type="scroll" exact>
-									HOME
-								</nuxt-link>
-							</div>
-							<div class="col-12 py-2">
-								<nuxt-link class="small fw-600" to="/works" type="scroll">
-									WORK
-								</nuxt-link>
-							</div>
-							<div class="col-12 py-2">
-								<nuxt-link class="small fw-600" to="/pricing" type="scroll">
-									PRICING
-								</nuxt-link>
-							</div>
-							<div class="col-12 py-2">
-								<nuxt-link class="small fw-600" to="/blog" type="scroll">
-									BLOG
-								</nuxt-link>
-							</div>
-							<div class="col-12 py-2">
-								<nuxt-link class="small fw-600" to="/contact" type="scroll">
-									CONTACT
-								</nuxt-link>
+					<div :class="{'nav-mobile-active' : mobileNavActive}" class="nav-mobile">
+						<div class="row align-items-center h-100">
+							<div class="col-12">
+								<div class="nav-mobile-wrapper container">
+									<div class="nav-mobile-list col-12 py-2" 
+										v-for="(l, idx) in link" 
+										:key="idx"
+										:style="{transitionDelay: `${(0.75/link.length) * idx }s`}"
+									>
+										<nuxt-link
+											:event="''"
+											v-on:click.native="navigateMobile(l.route)"
+											class="fw-600" 
+											:to="l.route" 
+											v-bind:exact="l.route === '/'"
+										>
+											{{ l.name }}
+										</nuxt-link>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -72,7 +66,29 @@ export default {
 		return {
 			didScroll: false,
 			hideNav: false,
-			mobileNavActive: false
+			mobileNavActive: false,
+			link: [
+				{
+					route: '/',
+					name: 'HOME'
+				},
+				{
+					route: '/works',
+					name: 'WORK'
+				},
+				{
+					route: '/pricing',
+					name: 'PRICING'
+				},
+				{
+					route: '/blog',
+					name: 'BLOG'
+				},
+				{
+					route: '/contact',
+					name: 'CONTACT'
+				}
+			]
 		}
 	},
 
@@ -83,6 +99,16 @@ export default {
 
 		toggleMobileNav() {
 			this.mobileNavActive = !this.mobileNavActive
+		},
+
+		navigateMobile(route) {
+			const self = this
+			this.toggleMobileNav()
+			setTimeout(() => {
+				self.$router.push({
+					path: route
+				})
+			}, 500)
 		},
 
 		hasScrolled() {
@@ -166,12 +192,34 @@ export default {
 
 .nav-mobile{
 	position: fixed;
-	top: 4rem;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	background: white;
 	width: 100%;
-	text-align: center;
 	z-index: 8;
 	box-shadow: 0 3px 4px 0px rgba(0,0,0,0.16);
+	transform: translate3d(-100%, 0, 0);
+	transition: all 0.5s ease-in-out;
+}
+.nav-mobile a {
+	font-size: 36px;	
+}
+.nav-mobile-active {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+.nav-mobile-active .nav-mobile-list {
+	transform: translate3d(0, 0, 0);
+}
+.nav-mobile-wrapper {
+	position: relative;
+}
+.nav-mobile-list {
+	transform: translate3d(-100%, 0, 0);
+	transition: all 0.5s ease-in-out;
 }
 
 </style>
