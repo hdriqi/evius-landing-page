@@ -1,4 +1,5 @@
 import axios from 'axios'
+import slugify from 'slugify'
 
 export const state = () => ({
   list: []
@@ -26,8 +27,18 @@ export const actions = {
 				}
 			})
 			.then((result)=>{
-				commit('addBulk', result.data.data)
-				resolve(result.data.data)
+				// add url propery
+				const data = result.data.data.map((v) => {
+					return {
+						...v, 
+						url: slugify(`${v.title} ${v._id}`, {
+							remove: /[^a-zA-Z0-9 ]/g,
+							lower: true
+						})
+					}
+				})
+				commit('addBulk', data)
+				resolve(data)
 			})
 			.catch((err) => {
 				reject(err)

@@ -3,7 +3,7 @@
 		<div class="mw-5 m-auto">
 			<div class="mb-7">
 				<div class="text-center">
-					<h4 class="primary-color">Works</h4>
+					<h4 class="primary-color">Work</h4>
 				</div>
 				<div class="separator m-auto"></div>
 			</div>

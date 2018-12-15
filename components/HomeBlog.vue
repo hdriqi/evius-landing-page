@@ -9,7 +9,7 @@
 			</div>
 			<div v-for="(item,index) in $store.state.blog.list.slice(0,3)" :key="index">
 				<div class="row mb-7">
-					<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item._id}`">
+					<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item.url}`">
 						<div class="thumbnail"
 							:style="{'background-image': `url(${JSON.parse(item.thumbnail)[0].url})`}"
 						>
@@ -17,10 +17,10 @@
 					</nuxt-link>
 					<div class="col-12 col-md-8 description">
 						<div class="titleWrap">
-							<nuxt-link :to="`/blog/${item._id}`">
+							<nuxt-link :to="`/blog/${item.url}`">
 								<h3 class="primary-color fw-600">{{ item.title }}</h3>
 							</nuxt-link>
-							<nuxt-link :to="`/blog/${item._id}`">
+							<nuxt-link :to="`/blog/${item.url}`">
 								<p class="darkBlue date">{{ transformDate(item.createdAt) }}</p>
 							</nuxt-link>
 					</div>

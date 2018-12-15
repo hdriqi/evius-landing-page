@@ -29,7 +29,8 @@ import Footer from '~/components/Footer'
 
 export default{
 	async asyncData({ store, route }) {
-		const current = route.params.id
+		const split = route.params.id.split('-')
+		const current = split[split.length - 1]
 		if(!store.state.blog.list.length > 0) {
 			await store.dispatch('blog/fetch')
 		}
@@ -46,6 +47,7 @@ export default{
 				{ hid: 'og:title', property: 'og:title', content: this.content.title },
 				{ hid: 'og:description', property: 'og:description', content: this.content.description },
 				{ hid: 'og:image', property: 'og:image', content: JSON.parse(this.content.thumbnail)[0].url },
+				{ hid: 'og:image:secure_url', property: 'og:image:secure_url', content: JSON.parse(this.content.thumbnail)[0].url },
 				{ hid: 'twitter:card', property: 'twitter:card', content: JSON.parse(this.content.thumbnail)[0].url}
       ]
     }
