@@ -17,7 +17,8 @@ module.exports = {
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'og:image', property: 'og:image', content: '/favicon.ico' },
       { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: '/favicon.ico' },
-      { hid: 'description', name: 'description', content: 'We help revolutionaze business. The 4th industrial revolution is coming. It’s time to digitize your business to stay relevant and stay at the forefront of your industry.' }
+      { hid: 'description', name: 'description', content: 'We help revolutionaze business. The 4th industrial revolution is coming. It’s time to digitize your business to stay relevant and stay at the forefront of your industry.' },
+      { hid: 'google-site-verification', name: 'google-site-verification', content: 'gVLQNKctedkmMacglJlVFygXJc5aCctN2x4bcF6UdbQ' }
     ],
     link: [
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -25,7 +26,8 @@ module.exports = {
 		],
 		script: [
 			{ src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js' }
-		]
+    ],
+    
   },
 
   /*
