@@ -35,9 +35,19 @@ export const actions = {
 				}
 			})
 			.then((result)=>{
-				commit('addBulk', result.data.data)
+				const data = result.data.data.map((v) => {
+					const thumbnail = JSON.parse(v.thumbnail)[0].url
+					const screenshot = JSON.parse(v.screenshot)[0].url
+					return {
+						...v, 
+						image: `${thumbnail}`,
+						screenshot: `${screenshot}`,
+						originalScreenshot: screenshot
+					}
+				})
+				commit('addBulk', data)
 				commit('toggleLoading')
-				resolve(result.data.data)
+				resolve(data)
 			})
 			.catch((err)=>{
 				reject(err)

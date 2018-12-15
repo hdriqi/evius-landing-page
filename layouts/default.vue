@@ -4,6 +4,20 @@
   </div>
 </template>
 
+<script>
+export default {
+	mounted() {
+		if(window.innerWidth > 720) {
+			this.$store.dispatch('global/setWidth', 720)
+		}
+		else if(window.innerWidth > 480) {
+			this.$store.dispatch('global/setWidth', 480)
+		}
+	}
+}
+</script>
+
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Cabin:400,600');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');

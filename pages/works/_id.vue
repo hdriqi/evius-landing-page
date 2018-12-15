@@ -8,7 +8,7 @@
 					<div v-html="content.background"></div>
 				</div>
 				<div class="mw-2 m-auto mb-7">
-					<img :src="screenshot" />
+					<img :src="`${content.screenshot}?w=${windowWidth || 300}`" />
 				</div>
 				<div class="mw-3 m-auto">
 					<div class="row mb-7">
@@ -49,8 +49,7 @@ export default {
 		}
 		const current = route.params.id.toLowerCase()
 		return {
-			title: current.slice(0, 1).toUpperCase() + current.slice(1),
-			screenshot: `/img/works/${current}/screenshot.png`
+			title: current.slice(0, 1).toUpperCase() + current.slice(1)
 		}
 	},
 
@@ -61,7 +60,10 @@ export default {
 		content() {
 			const current = this.$route.params.id.toLowerCase()
 			return this.$store.getters['work/getListById'](current)
-		}
+		},
+		windowWidth() {
+			return this.$store.getters['global/width']
+		}		
 	},
 
 	components: {

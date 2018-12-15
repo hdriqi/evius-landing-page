@@ -9,11 +9,11 @@
 						<div id="borderLine"></div>
 					</div>
 					<div class="blog">
-						<div v-for="(item,index) in $store.state.blog.list" :key="index">
+						<div v-for="(item,index) in content" :key="index">
 							<div class="row mb-7">
 								<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item.url}`">
 									<div class="thumbnail"
-										:style="{'background-image': `url(${JSON.parse(item.thumbnail)[0].url})`}"
+										:style="{'background-image': `url(${item.image}?w=${windowWidth || 300}`}"
 									>
 									</div>
 								</nuxt-link>
@@ -53,6 +53,15 @@ export default{
 		transformDate(date) {
 			const newDate = new Date(date)
 			return newDate.toDateString()
+		}
+	},
+
+	computed: {
+		content() {
+			return this.$store.state.blog.list
+		},
+		windowWidth() {
+			return Math.min(480, this.$store.getters['global/width'])
 		}
 	},
 

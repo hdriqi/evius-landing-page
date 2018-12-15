@@ -7,11 +7,6 @@
 					<div class="col-12 text-center mb-4">
 						<h3>{{ content.title }}</h3>
 						<p class="meta" id="dates">{{ content.createdAt | parseDate }}</p>
-						<!-- <div id="socialIcon">
-							<a href="#"><img src="~/assets/img/fb2_w.png"></a>
-							<a href="#"><img src="~/assets/img/tw_w.png"></a>
-							<a href="#"><img src="~/assets/img/ig_w.png"></a>
-						</div> -->
 					</div>
 					<div class="col-12">
 						<div id="content" v-html="content.content"></div>
@@ -46,9 +41,9 @@ export default{
         { hid: 'description', name: 'description', content: this.content.description },
 				{ hid: 'og:title', property: 'og:title', content: this.content.title },
 				{ hid: 'og:description', property: 'og:description', content: this.content.description },
-				{ hid: 'og:image', property: 'og:image', content: JSON.parse(this.content.thumbnail)[0].url },
-				{ hid: 'og:image:secure_url', property: 'og:image:secure_url', content: JSON.parse(this.content.thumbnail)[0].url },
-				{ hid: 'twitter:card', property: 'twitter:card', content: JSON.parse(this.content.thumbnail)[0].url}
+				{ hid: 'og:image', property: 'og:image', content: this.content.image },
+				{ hid: 'og:image:secure_url', property: 'og:image:secure_url', content: this.content.image },
+				{ hid: 'twitter:card', property: 'twitter:card', content: this.content.image }
       ]
     }
   },

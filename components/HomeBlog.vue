@@ -11,7 +11,7 @@
 				<div class="row mb-7">
 					<nuxt-link class="d-block col-12 col-md-4" :to="`/blog/${item.url}`">
 						<div class="thumbnail"
-							:style="{'background-image': `url(${JSON.parse(item.thumbnail)[0].url})`}"
+							:style="{'background-image': `url(${item.image}?w=${windowWidth || 300})`}"
 						>
 						</div>
 					</nuxt-link>
@@ -42,6 +42,12 @@
 
 <script>
 export default {
+	computed: {
+		windowWidth() {
+			return Math.min(480, this.$store.getters['global/width'])
+		}
+	},
+
 	methods: {
 		transformDate(date) {
 			const newDate = new Date(date)

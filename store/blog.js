@@ -27,10 +27,11 @@ export const actions = {
 				}
 			})
 			.then((result)=>{
-				// add url propery
 				const data = result.data.data.map((v) => {
+					const thumbnail = JSON.parse(v.thumbnail)[0].url
 					return {
 						...v, 
+						image: thumbnail,
 						url: slugify(`${v.title} ${v._id}`, {
 							remove: /[^a-zA-Z0-9 ]/g,
 							lower: true

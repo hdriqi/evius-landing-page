@@ -94,6 +94,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    analyze: true,
     extend(config, ctx) {
       config.module.rules.push({
 				test: /\.svg/,

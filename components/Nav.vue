@@ -5,7 +5,7 @@
 				<div class="row align-items-center h-100">
 					<div class="col-2 nav-logo">
 						<nuxt-link to="/">
-							<img src="~/assets/img/logo.png">
+							<img src="https://5be7ac1db55dfa50cebc6f5e.evius.id/media/49a00ac0-005b-11e9-8b34-19d1462d373f/image/png?w=50">
 						</nuxt-link>
 					</div>
 					<div class="col-10 nav-menu d-md-none text-right" style="z-index: 9">
