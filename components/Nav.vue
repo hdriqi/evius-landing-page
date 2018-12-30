@@ -8,7 +8,7 @@
 							<img src="https://5be7ac1db55dfa50cebc6f5e.evius.id/media/49a00ac0-005b-11e9-8b34-19d1462d373f/image/png?w=50">
 						</nuxt-link>
 					</div>
-					<div class="col-10 nav-menu d-md-none text-right" style="z-index: 9">
+					<div class="col-10 nav-menu d-lg-none text-right" style="z-index: 9">
 						<h5 class="m-0" @click="toggleMobileNav">{{ mobileNavButton }}</h5>
 					</div>
 					<div class="col-10 nav-menu d-none d-lg-block text-right">
