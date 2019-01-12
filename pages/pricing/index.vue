@@ -14,7 +14,7 @@
 							</div>
 							<div class="col-12 pb-4 text-center">
 								<h6>Start from</h6>
-								<h6><span class="h3">Rp299.999</span>/month</h6>
+								<h6><span class="h3">Rp299k</span>/month</h6>
 							</div>
 							<div class="col-12">
 								<p>This plan is for you who already have an established business and want to digitize it. We can help you increase sales and productivity or even lower your expense.</p>
@@ -32,7 +32,7 @@
 							</div>
 							<div class="col-12 pb-4 text-center">
 								<h6>Start from</h6>
-								<h6><span class="h3">Rp3.999.999</span>/month</h6>
+								<h6><span class="h3">Rp3.999k</span>/month</h6>
 							</div>
 							<div class="col-12">
 								<p>You have startup idea that can revolutionize how people lives? We're in! Our startup plan manifest your idea and turn it into world-class product.</p>
