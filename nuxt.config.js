@@ -3,6 +3,7 @@ const axios = require('axios')
 module.exports = {
 	mode: 'universal',
 	server: {
+    host: '0.0.0.0',
 		port: 8001
 	},
 
