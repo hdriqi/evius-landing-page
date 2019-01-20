@@ -1,9 +1,9 @@
 FROM node:10-alpine
 
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY . .
-RUN apk add --update --no-cache --virtual .build-dev build-base python python-dev \
-   && npm i -g npm \
+COPY . /usr/src/app
+RUN npm i -g npm \
    && npm i \
    && apk del .build-dev
 
