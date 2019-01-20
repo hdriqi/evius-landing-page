@@ -1,4 +1,3 @@
-const pkg = require('./package')
 const axios = require('axios')
 
 module.exports = {

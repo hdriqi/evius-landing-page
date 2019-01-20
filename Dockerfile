@@ -9,6 +9,6 @@ RUN apk add --update --no-cache --virtual .build-dev build-base python python-de
    && npm rebuild bcrypt --build-from-source \
    && apk del .build-dev
 
-EXPOSE 3000:8001
+EXPOSE 8001
 
 CMD ["npm", "start"]

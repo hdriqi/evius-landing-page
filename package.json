@@ -1,8 +1,8 @@
 {
-  "name": "evis",
+  "name": "evius-landing-page",
   "version": "1.0.0",
-  "description": "My well-made Nuxt.js project",
-  "author": "mipagama",
+  "description": "Evius Industri landing page",
+  "author": "Evius Industri",
   "private": true,
   "scripts": {
     "dev": "nuxt",
