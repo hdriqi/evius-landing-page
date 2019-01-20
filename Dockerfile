@@ -2,13 +2,10 @@ FROM node:10-alpine
 
 WORKDIR /usr/src/app
 
-COPY ./package.json /usr/src/app/
-COPY ./package-json.lock /usr/src/app/
+COPY ./ /usr/src/app
+
 RUN npm install
-
-COPY . /usr/src/app
 RUN npm build
-
 RUN npm cache clean
 
 EXPOSE 8001
