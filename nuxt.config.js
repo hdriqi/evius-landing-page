@@ -55,7 +55,7 @@ module.exports = {
 		['@nuxtjs/google-analytics', {
       id: 'UA-93228473-1'
     }]
-	],
+	], 
 
 	generate: {
     routes: function (cb) {
