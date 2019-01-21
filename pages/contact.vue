@@ -50,6 +50,19 @@ import Nav from '~/components/Nav'
 import Footer from '~/components/Footer'
 import Works from '~/components/Works'
 
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-863370783/uVsNCImsw5MBEJ_815sD',
+      'event_callback': callback
+  });
+  return false;
+}
+
 export default{
 	created() {
 		if(!this.$store.state.work.list.length > 0) {
@@ -81,6 +94,7 @@ export default{
 				}
 				this.$store.dispatch('form/contactUs', data)
 				.then((result) => {
+					gtag_report_conversion()
 					alert('Thank you! Your message has been delivered to us.')
 					this.name = ''
 					this.email = ''
