@@ -10,11 +10,6 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run build"
-    }
-  },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
     "axios": "^0.18.0",
