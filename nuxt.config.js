@@ -14,13 +14,13 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'og:image', property: 'og:image', content: '/favicon.ico' },
-      { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: '/favicon.ico' },
+      { hid: 'og:image', property: 'og:image', content: 'https://5be7ac1db55dfa50cebc6f5e.evius.id/media/49a00ac0-005b-11e9-8b34-19d1462d373f/image/png?w=50' },
+      { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: 'https://5be7ac1db55dfa50cebc6f5e.evius.id/media/49a00ac0-005b-11e9-8b34-19d1462d373f/image/png?w=50' },
       { hid: 'description', name: 'description', content: 'We help revolutionize business. The 4th industrial revolution is coming. It’s time to digitize your business to stay relevant and stay at the forefront of your industry.' },
       { hid: 'google-site-verification', name: 'google-site-verification', content: 'gVLQNKctedkmMacglJlVFygXJc5aCctN2x4bcF6UdbQ' }
     ],
     link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'icon', type: 'image/x-icon', href: 'https://5be7ac1db55dfa50cebc6f5e.evius.id/media/49a00ac0-005b-11e9-8b34-19d1462d373f/image/png?w=50' },
 			{ rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/monokai-sublime.min.css' }
 		],
 		script: [
