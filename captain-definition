@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "dockerfileLines": [
-    "FROM node:10-alpine:edge",
+    "FROM node:10-alpine",
     "WORKDIR /usr/src/app",
     "COPY ./src/package.json /usr/src/app",
     "RUN npm install",
