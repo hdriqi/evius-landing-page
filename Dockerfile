@@ -7,9 +7,10 @@ COPY ./package.json /usr/src/app
 ENV NUXT_HOST 0.0.0.0
 ENV NUXT_PORT 80
 
-RUN npm install
+COPY . /usr/src/app
 
-COPY ./ /usr/src/app
+RUN npm install
+RUN npm run build
 
 EXPOSE 80
 CMD [ "npm", "start" ]

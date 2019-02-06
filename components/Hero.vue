@@ -26,7 +26,7 @@
 						</div>
 						<div class="col-12 col-md-6 text-center text-md-right mb-4 order-1 order-md-2">
 							<div>
-								<span class="m-0 inline-block secondary-bg primary-color px-1">Dont't Just Build a Business</span>
+								<span class="m-0 inline-block secondary-bg primary-color px-1">Don't Just Build a Business</span>
 							</div>
 							<div>
 								<span class="m-0 inline-block secondary-bg primary-color px-1">Start a Revolution</span>
